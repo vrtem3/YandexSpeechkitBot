@@ -12,7 +12,7 @@ def get_logger() -> logging.Logger:
     logger_ = logging.getLogger("exception_logger")
     logger_.setLevel(level=logging.INFO)
 
-    # Создаем форматтер
+    # Создаем форматтер для сообщений лога
     formatter = logging.Formatter(
         fmt='%(asctime)s - %(levelname)s - %(module)s - %(funcName)s - %(message)s',
         datefmt="%Y-%m-%d %H:%M:%S",
@@ -29,8 +29,8 @@ def get_logger() -> logging.Logger:
 
     return logger_
 
-
-# Уведомление администратору в телеграм от технического бота при появлении ошибок в функциях
+# Функция для отправки уведомлений администратору в Telegram от технического бота
+# при появлении ошибок в функциях, текст сообщения шаблонный
 def send_error_message(module_name, func_name, e):
     bot = telebot.TeleBot(token=os.getenv('tg_notif_token'))
     text_message = f"""
