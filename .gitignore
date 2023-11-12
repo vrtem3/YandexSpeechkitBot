@@ -1,8 +1,0 @@
-.env
-/voices
-/venv
-authorized_key.json
-data.db
-/__pycache__
-logs.log
-.gitignore
